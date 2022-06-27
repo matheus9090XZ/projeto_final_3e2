@@ -1,10 +1,12 @@
 <?php
  
+ require "config/Conexao.php";
+
  class CategoriaModel{
 
-     function __construct($conexao)
+     function __construct()
      {
-         $this->conexao = $conexao;
+         $this->conexao = $conexao::getConnection();
      }
 
      function inserir($nome){
