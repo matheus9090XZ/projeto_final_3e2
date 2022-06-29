@@ -6,7 +6,7 @@
 
      function __construct()
      {
-         $this->conexao = $conexao::getConnection();
+         $this->conexao = Conexao::getConnection();
      }
 
      function inserir($nome){

@@ -7,22 +7,21 @@
         if(file_exists($path_controller)){
             require $path_controller;
             
-            
+            //cria um objeto controlador
+                $obj = new $controller();
+
             //verifica se foi enviada a variavel $_GET['m']
             //que contém o método do controlador
-            if(isset($_GET['m'])){
-                $metodo = $_GET['m'];
+          
+                $metodo = $_GET['m'] ?? "index";
 
 
-                //cria um objeto controlador
-                $obj = new controller();
+                
 
                 //verifica se o controlador possui uma função
                 if(is_callable(array($obj,$metodo))){
                     echo "existe a função";    
                 }
-            }
-
-            echo $path_controller;
+            
         }
  }

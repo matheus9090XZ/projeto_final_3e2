@@ -1,8 +1,9 @@
 <?php
 
    require "model/CategoriaModel.php";
+   require "controller/controller.php";
    
-   class Categoria{
+   class Categoria extends Controller{
 
       function __construct(){
          $this->$model = new CategoriaModel();
@@ -11,13 +12,13 @@
 
 
       function index(){
-         var_dump($this->model->buscarTodos());
+         $categorias = ($this->model->buscarTodos());
+         $this->load_template("categoria/listagem.php", $categorias);
       }
 
    }
 
       function inserir(){
-         echo "testando função inserir";
       }
    
 
